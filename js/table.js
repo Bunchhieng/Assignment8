@@ -104,26 +104,20 @@ $(document).ready(function () {
     less than ending point.
     The keyup event is sent to an element when the user releases a key on the keyboard.
     *******************************************************/
-    $('form > input').keyup(function () {
-        var empty = false;
+    /*$('form > input').keyup(function () {
         $('form > input').each(function () {
-            if ($(this).val() == '') {
-                empty = true;
+            if ($('#pOne').val() > $('#pTwo').val() || $('#pThree').val() > $('#pFour').val()) {
+                $('input:submit').attr('disabled', 'disabled');
+                $('#error4').html("Starting point must be less than ending point.");
+            } else {
+                $('input:submit').removeAttr('disabled');
+                $('#error4').slideUp('fast', function () {
+                    $(this).remove();
+                });
             }
         });
-
-        if (empty) {
-            $('input:submit').attr('disabled', 'disabled');
-            $('#error4').html("Please fill in all input boxes.");
-        } else if ($('#pOne').val() > $('#pTwo').val() || $('#pThree').val() > $('#pFour').val()) {
-            $('input:submit').attr('disabled', 'disabled');
-            $('#error4').html("Starting point must be less than ending point.");
-        } else {
-            $('input:submit').removeAttr('disabled');
-            $('#error4').html('');
-        }
     });
-
+    */
 
     /* This function creates checkbox based on how many dynamically created table.
      ********************************************************************/
@@ -233,14 +227,29 @@ $(document).ready(function () {
     $('#delete').click(function () {
         // Looping through all input that have type = checkbox.
         // If check box is checked, delete checkbox, label, table and tab.
-        $("input[type='checkbox']:checked").each(function () {
-            /* This code will delete the first tab and tabs
+        /* This code will delete the first tab and tabs
             $('#tabs > ul > li').remove();
             $('#tabs > #tab-1').remove();
             $("input[type='checkbox']:checked").remove();
             $("label").remove();
             ***********************************************/
-            $('#tabs').tabs("refresh");
+        var selected = [];
+        $('input:checkbox:checked').each(function () {
+            selected.push($(this).attr('id'));
         });
+        /* Set active tab to unchecked checkbox.
+        Not exactly sure why this doesn't work.
+        $('#tabs').tabs("refresh");
+        $("#tabs").tabs("option", "active", $('input:checkbox').attr('checked',false).val());
+        ***********************************************************************************/
+        // Remove all checked checkbox that match element in array selected. 
+        for (var m = 0; m < selected.length; m++) {
+            $("#ch-" + selected[m].replace(/\D/g, '')).remove();
+            $("#lb-" + selected[m].replace(/\D/g, '')).remove();
+            $("#tab-" + selected[m].replace(/\D/g, '')).remove();
+            $('#ui-id-' + selected[m].replace(/\D/g, '')).remove();
+            $('#tabs').tabs("option", "active", $("input:checkbox:not(:checked)"));
+            $('#tabs').tabs("refresh");
+        }
     });
 });
