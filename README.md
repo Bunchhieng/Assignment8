@@ -1,4 +1,6 @@
-Assignment8
+Assignment8 for GUI I course 91.461
 ===========
+Prof. Heines
+===
 
-Assignment 8 for GUI I course 91.461
+Dynamically generate table with jQuery validation. 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 
+        File: Assn8/index.html
+        91.461 Assignment 8: Creating an interactive dynamic table
+        Author: Bunchhieng Soth, bsoth@cs.uml.edu
+        Created on: 11/17/2014
+        
+        This web page is for GUI course, assignment 8.
+        -->
+    <title>Assignment 8</title>
+    <!-- Add favicon for page -->
+    <link rel="icon" href="img/SQL.png" type="image/png">
+    <!-- jQuery UI css -->
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <!-- load bootsctrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- load main style sheet -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <div id="wrapper">
+       <!-- Dynamically checkbox that will be used to delete multiple tabs -->
+        <div id="dtabs"></div><!-- End checkbox -->
+        
+        <div id="centerDiv" class="column">
+            <h2>Creating an interactive dynamic table</h2>
+            <h3>Instruction</h3>
+            <p id="instruct">Please input four integers which uses to calculate row and column of the table. Please make sure that starting point must less than ending point of column and row, otherwise the table will not be generated.</p>
+            <!-- form start here -->
+            <form class="form-horizontal" id="form-horizontal" action="javascript:void(0)" method="get">
+                <h3>Column:</h3>
+                <label for="pOne">Start Point *:</label>
+                <input type="number" value="1" id="pOne" name="pOne" required/>
+                <p id="error1"></p>
+                <br />
+                <label for="pTwo">End Point *:</label>&nbsp;
+                <input type="number" value="10" id="pTwo" name="pTwo" required/>
+                <p id="error2"></p>
+                <br />
+                <h3>Row:</h3>
+                <label for="pThree">Start Point *:</label>
+                <input type="number" value="3" id="pThree" name="pThree" required/>
+                <p id="error3"></p>
+                <br />
+                <label for="pFour">End Point *:</label>&nbsp;
+                <input type="number" value="10" id="pFour" name="pFour" required/>
+                <p id="error4"></p>
+                <h3>Delete multiple checkboxs</h3>
+                <div id="check"></div>
+                <input type="submit" value="Submit" id="submit">
+                <input type="button" value="Delete" id="delete">
+            </form>
+        </div>
+        <h2 style="text-align:center">Table output here:</h2>
+        <!-- dynamically table on the right of the page -->
+        <div class="column" id="table1">
+            <div id="tabs">
+                <ul></ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- maximize speed of page loading by putting all js at the end of body -->
+    <!-- load jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- load jQuery UI -->
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <!-- load main javascript file -->
+    <script src="js/table.js" type="text/javascript"></script>
+    <!-- The jQuery Validation plugin is from http://jqueryvalidation.org/ -->
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/additional-methods.min.js" type="text/javascript"></script>
+</body>
+
+</html>

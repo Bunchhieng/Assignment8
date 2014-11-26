@@ -1,0 +1,95 @@
+/*
+
+    File: /~bsoth/public_html/assignment6/css/style.css
+    91.461 Assignment 8: Creating an interactive dynamic table
+            Bunchhieng Soth, Umass Lowell Computer Science, Bunchhieng_soth@student.uml.edu
+            Created on 11/20/2014 
+
+    This is the main stylesheet for index.html.
+*/
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+/* Body
+************************************************/
+ html,
+body {
+    width: 100%;
+    height: 100%;
+    background: #e7e7e7;
+    font-family: 'PT Sans', sans-serif;
+}
+.column {
+    padding: 50px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+}
+/* content 
+************************************************/
+#instruct {
+    font-size: 15px;
+    color: red;
+}
+/* Table style
+************************************************/
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}
+td {
+    border: 1px solid black;
+    padding: 10px;
+}
+table tr:first-child {
+    background-color: black;
+}
+table tr:first-child td:first-child {
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    background-color: white;
+}
+table tr:first-child {
+    background-color: black;
+}
+table td:first-child {
+    background-color: black;
+    border-left: 1px solid white;
+}
+tr:first-child td {
+    border-right: 1px solid white;
+    color: white;
+}
+tr td:nth-child(1) {
+    border-bottom: 1px solid white;
+    color: white;
+}
+/* Error message 
+***********************************************/
+
+#form-horizontal label.error,
+#form-horizontal input.submit {
+    color: red;
+    display: block;
+}
+
+#error4 {
+    font-size: 15px;
+    color: red;
+    font-weight: 900;
+}
+/* jQuery UI closable tab 
+***********************************************/
+
+#tabs {
+    margin-top: 1em;
+}
+#tabs li .ui-icon-circle-close {
+    float: right;
+    margin: 0.1em 0 0 1em;
+    cursor: pointer;
+}
