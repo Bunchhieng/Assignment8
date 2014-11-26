@@ -225,7 +225,7 @@ $(document).ready(function () {
     /* Delete multiples tabs from the (checked) checkbox.
      *******************************************************************/
     $('#delete').click(function () {
-        // Looping through all input that have type = checkbox.
+        // Store id of checked checkbox to an array then loop through.
         // If check box is checked, delete checkbox, label, table and tab.
         /* This code will delete the first tab and tabs
             $('#tabs > ul > li').remove();
@@ -249,7 +249,7 @@ $(document).ready(function () {
             $("#tab-" + selected[m].replace(/\D/g, '')).remove();
             $('#ui-id-' + selected[m].replace(/\D/g, '')).remove();
             $('#tabs').tabs("option", "active", $("input:checkbox:not(:checked)"));
-            $('#tabs').tabs("refresh");
         }
+        $('#tabs').tabs("refresh");
     });
 });

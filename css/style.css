@@ -17,6 +17,7 @@ body {
     height: 100%;
     background: #e7e7e7;
     font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
 }
 .column {
     padding: 50px;
@@ -28,7 +29,6 @@ body {
 /* content 
 ************************************************/
 #instruct {
-    font-size: 15px;
     color: red;
 }
 /* Table style
@@ -38,7 +38,7 @@ table {
     border-collapse: collapse;
     margin: 0 auto;
     color: black;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
 }
 td {
@@ -78,7 +78,7 @@ tr td:nth-child(1) {
 }
 
 #error4 {
-    font-size: 15px;
+    font-size: 20px;
     color: red;
     font-weight: 900;
 }
