@@ -8,7 +8,7 @@
 */
 
 
-/* I use part of Prof. Heines code to add border when error occurs. 
+/* I use part of Prof. Heines code to add border when error occurs.
  **********************************************************************/
 var tblValidator = {
 
@@ -119,7 +119,7 @@ $(document).ready(function () {
     });
     */
 
-    /* This function creates checkbox based on how many dynamically created table.
+    /* This function creates checkbox based on number of tabs.
      ********************************************************************/
     function createCheckBox(index_tabs) {
         var checkbox = document.createElement("input");
@@ -140,7 +140,7 @@ $(document).ready(function () {
         document.getElementById('check').appendChild(label);
     }
 
-    /* A function is used to generate table.
+    /* This function is used to generate table.
      ******************************************************************/
     function createTable(index) {
         // Get four integers from user input.
@@ -194,9 +194,9 @@ $(document).ready(function () {
     }
     /* jQueury for tabs.
      ************************************************************************/
-    /* 
-        This variable is a counter for click event, which will be used to create checkbox.
-        Checkbox is used to delete multiple tabs 
+    /*
+        This function dynamically creates tabs when user click on submit.
+        Checkbox is used to delete multiple tabs
         *********************************************************************************/
     $('#submit').click(function () {
         var num_tabs = $('div#tabs ul li.tab').length + 1;
@@ -216,7 +216,7 @@ $(document).ready(function () {
         $("#" + panelId).remove();
         // alert(panelId.replace(/[0-9]/g,''));
         /* Also remove checkbox and label when remove tab.
-            regex uses to take only number from string */
+            Regex uses to take only number from string. */
         $("#ch-" + panelId.replace(/\D/g, '')).remove();
         $("#lb-" + panelId.replace(/\D/g, '')).remove();
         tabs.tabs("refresh");
@@ -225,9 +225,9 @@ $(document).ready(function () {
     /* Delete multiples tabs from the (checked) checkbox.
      *******************************************************************/
     $('#delete').click(function () {
-        // Store id of checked checkbox to an array then loop through.
-        // If check box is checked, delete checkbox, label, table and tab.
-        /* This code will delete the first tab and tabs
+        /* Store id of checked checkbox to an array then loop through.
+           If check box is checked, delete checkbox, label, table and tab.
+            /* This code will delete the first tab and tabs
             $('#tabs > ul > li').remove();
             $('#tabs > #tab-1').remove();
             $("input[type='checkbox']:checked").remove();
@@ -242,13 +242,29 @@ $(document).ready(function () {
         $('#tabs').tabs("refresh");
         $("#tabs").tabs("option", "active", $('input:checkbox').attr('checked',false).val());
         ***********************************************************************************/
-        // Remove all checked checkbox that match element in array selected. 
+        // Remove all checked checkbox that matched elements in array selected.
         for (var m = 0; m < selected.length; m++) {
             $("#ch-" + selected[m].replace(/\D/g, '')).remove();
             $("#lb-" + selected[m].replace(/\D/g, '')).remove();
             $("#tab-" + selected[m].replace(/\D/g, '')).remove();
             $('#ui-id-' + selected[m].replace(/\D/g, '')).remove();
             $('#tabs').tabs("option", "active", $("input:checkbox:not(:checked)"));
+        }
+        $('#tabs').tabs("refresh");
+    });
+
+    /* This function delete all tabs and table.
+     *******************************************************************/
+    $('#deleteAll').click(function (e) {
+        // e.preventDefault;
+        var num_tabs = $("#tabs > ul > li").size() + 1;
+
+        // Loop through each tabs and table and delete everything.
+        for (var t = 1; t <= num_tabs; t++) {
+            $("#ch-" + t).remove();
+            $("#lb-" + t).remove();
+            $("#tab-" + t).remove();
+            $("#ui-id-" + t).remove();
         }
         $('#tabs').tabs("refresh");
     });
